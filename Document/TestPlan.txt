@@ -1,0 +1,107 @@
+Name 		: C S SAI VISHNU
+Roll No. 	: 19CS10021
+
+/* 	The positive tests should pass 
+	The negative tests should fail. */
+
+Scenarios for application testing :
+    invalid booking : due to stations , invalid date of booking / reservation , date of reservation more than one year than
+                      date of booking , invalid passenger details should fail.
+
+    the fare for station A to station B and station B to station A should be the same
+
+    multiple bookings should be allowed on the same date of booking for the same passenger.
+    multiple bookings should be allowed on the same date of booking for different passengers.
+    multiple bookings should be allowed on the same date of reservation for the same passenger.
+    multiple bookings should be allowed on the same date of reservation for different passengers.
+
+    multiple bookings from the same departure station should be allowed
+    multiple bookings to the same arrival station should be allowed
+    multiple bookings for the same booking class should be allowed
+    multiple bookings for the same booking category should be allowed
+
+    different booking classes for the same set of stations should be allowed
+    different booking category for the same set of stations should be allowed.
+
+    the fare between two stations should be independent of the date.
+    the fare between two stations should be dependent on the bookingclass.
+    the fare between two stations should be dependent on the bookingcategory.
+    the fare between two stations should be dependent on the passenger disability , age and gender.
+
+    the PNR should serially increase for each booking
+    each booking must be added to the booking vector
+    the fare should be computed correctly according to the business logic given.
+
+
+
+Scenarios for unit testing : (Golden outputs are provided in the unit test function of the respective classes)
+1) Date class :
+    Correct date construction should pass
+    If month > 12 , the construction should fail
+    If year < 1900 , the construction should fail
+    If year > 2099 , the construction should fail
+    If month = 1 , 3 , 5 , 7 , 8 , 10 , 12 then date = 31 allowed
+    If month = 1 , 3 , 5 , 7 , 8 , 10 , 12 then date > 31 not allowed
+    If month = 4 , 6 , 9 , 11 then date = 30 allowed
+    If month = 4 , 6 , 9 , 11 then date > 30 not allowed
+    If month = 2 and leap year then date = 29 should be allowed
+    If month = 2 and not a leap year then date > 28 should not be allowed
+
+2) Station class :
+    Any station with non empty name should be constructed
+    A station with an empty name should not be constructed
+    Two stations with the same name should be equal
+    GetName() function should properly return the name of the station
+    GetDistance() function should return the distance between the two stations
+
+3) Railways class :
+    no duplicate station name should be found
+    no duplicate distance should be allowed
+    no distance between same two stations should be allowed
+    a given station should be found in the station vector of the class.
+    GetDistance() function should return the distance between two station.
+
+
+4) Passenger class :
+    at least one of first name and last name should be non empty .
+    middle name may be empty.
+    date of birth must be valid.
+    aadhar should be 12 length long digit only string.
+    mobile number should either be empty or be a 10 length long digit string.
+
+5) Booking class :
+    fromStation and toStation must be valid.
+    The distance between the above pair of stations must exist in the railways.
+    date of booking must be valid.
+    date of reservation must be valid.
+    date of booking must be later than date of reservation and within one year of it.
+    passenger should be valid.
+    passenger's date of birth should be less than date of reservation.
+
+6) AC2Tier : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+7) AC3Tier : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+8) ACChairCar : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+9) ACFirstClass : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+10) FirstClass : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+11) SecondSitting : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
+
+12) Sleeper : 
+    the data members of the class should be properly set
+    the function methods should properly return the data members
